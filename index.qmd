@@ -224,9 +224,9 @@ Fill in your name, NetID, and GitHub username below.
 In Julia, we store values in **variables** using the `=` sign.
 
 ```{julia}
-name = "James Doss-Gollin" # <1>
-netid = "jd82" # <2>
-github_username = "jdossgollin" # <3>
+name = "Madison Guerinot" # <1>
+netid = "mg221" # <2>
+github_username = "MadisonGuerinot" # <3>
 ```
 
 1. Create a variable called `name` and assign it a **string** (text in quotes). Replace with your name!
@@ -285,7 +285,18 @@ end # <1>
 5. Add a dashed line for the true function. `:dash` is a **symbol** - a special Julia type for named options (look up "Julia symbols" for more).
 6. Add a legend that automatically uses the `label` text from each plot layer.
 7. Return the figure so it displays. In Julia, the last expression in a block is automatically returned.
-
+```{julia}
+#| label: fig-sine
+#| fig-cap: "Noisy sine wave data with true function overlay"
+let # <1>
+    fig = Figure() # <2>
+    ax = Axis(fig[1, 1]; xlabel="x", ylabel="y", title="Noisy Sine Wave") # <3>
+    scatter!(ax, x, y_noisy; label="Noisy data", markersize=8) # <4>
+    lines!(ax, x, y_true; linestyle=:dash, linewidth=2, label="True function") # <5>
+    axislegend(ax) # <6>
+    fig # <7>
+end # <1>
+```
 ## Submission
 
 Follow these steps to submit your completed lab:
